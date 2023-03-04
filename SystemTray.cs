@@ -36,13 +36,11 @@ namespace Hoot
             synth = new SpeechSynthesizer();
             synth.SetOutputToDefaultAudioDevice();
 
-            //// temp
-            //var p = new Popup();
-            //p.Show();
-            //synth.Speak(String.Format("The time is {0}", DateTime.Now.ToString("h:mm tt")));
+            var nextIntervalTimeInSecs = calculateNextInterval();
+            Console.WriteLine("Timer will execute in {0} seconds or approx {1} minutes", nextIntervalTimeInSecs, (nextIntervalTimeInSecs / 60));
 
             timer = new Timer();
-            timer.Interval = (calculateNextInterval() * 1000); // 1 minute
+            timer.Interval = (nextIntervalTimeInSecs * 1000);
             timer.Tick += new EventHandler(Tick);
             timer.Start();
         }
