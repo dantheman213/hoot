@@ -1,6 +1,6 @@
 # Hoot
 
-Windows utility to alert via speech and system tray popup every every top of hour and 30 minutes intervals to help with your work/school day, meetings, and productivity.
+Windows utility to alert via speech and system tray popup the current time every top of hour and 30 minutes intervals to help keep you on track with your work/school day, meetings, and productivity.
 
 ## Getting Started
 
