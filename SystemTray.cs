@@ -45,6 +45,9 @@ namespace Hoot
             timer.Start();
         }
 
+        // From when the app starts find the next top of the hour or 30 min mark in which to fire off the alert.
+        // e.g. App starts at 9:04am then this function will return 9:30am.
+        // e.g. App starts at 12:46pm then this function will return 1:00pm.
         private int calculateNextInterval()
         {
             var now = DateTime.Now;
@@ -66,18 +69,13 @@ namespace Hoot
 
         private void Tick(object sender, EventArgs e)
         {
-            if (DateTime.Now.Minute == 30 || DateTime.Now.Minute == 0)
-            {
-                var p = new Popup();
-                p.Show();
-                synth.Speak(String.Format("The time is {0}", DateTime.Now.ToString("h:mm tt")));
-            }
+            var p = new Popup();
+            p.Show();
+
+            synth.Speak(String.Format("The time is {0}", DateTime.Now.ToString("h:mm tt")));
 
             // set timer to 30 min intervals after initial timer fires off which will likely not have been on a 30 min even interval
-            if (timer.Interval != (1800 * 1000))
-            {
-                timer.Interval = (1800 * 1000);
-            }
+            timer.Interval = (1800 * 1000);
         }
 
         private void Options(object sender, EventArgs e)
