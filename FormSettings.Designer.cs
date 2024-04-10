@@ -34,18 +34,20 @@
             this.cbEndTime = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.chkMon = new System.Windows.Forms.CheckBox();
+            this.chkTues = new System.Windows.Forms.CheckBox();
+            this.chkWed = new System.Windows.Forms.CheckBox();
+            this.chkThurs = new System.Windows.Forms.CheckBox();
+            this.chkFri = new System.Windows.Forms.CheckBox();
+            this.chkSat = new System.Windows.Forms.CheckBox();
+            this.chkSun = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbAlertFrequency = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbVoiceType = new System.Windows.Forms.ComboBox();
+            this.chkStartup = new System.Windows.Forms.CheckBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -53,13 +55,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox7);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chkStartup);
+            this.groupBox1.Controls.Add(this.chkSun);
+            this.groupBox1.Controls.Add(this.chkSat);
+            this.groupBox1.Controls.Add(this.chkFri);
+            this.groupBox1.Controls.Add(this.chkThurs);
+            this.groupBox1.Controls.Add(this.chkWed);
+            this.groupBox1.Controls.Add(this.chkTues);
+            this.groupBox1.Controls.Add(this.chkMon);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbEndTime);
@@ -107,82 +110,82 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "To";
             // 
-            // checkBox1
+            // chkMon
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(37, 110);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(66, 24);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Mon";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkMon.AutoSize = true;
+            this.chkMon.Location = new System.Drawing.Point(37, 110);
+            this.chkMon.Name = "chkMon";
+            this.chkMon.Size = new System.Drawing.Size(66, 24);
+            this.chkMon.TabIndex = 4;
+            this.chkMon.Text = "Mon";
+            this.chkMon.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkTues
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(109, 110);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(70, 24);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Tues";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkTues.AutoSize = true;
+            this.chkTues.Location = new System.Drawing.Point(109, 110);
+            this.chkTues.Name = "chkTues";
+            this.chkTues.Size = new System.Drawing.Size(70, 24);
+            this.chkTues.TabIndex = 5;
+            this.chkTues.Text = "Tues";
+            this.chkTues.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkWed
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(182, 110);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(68, 24);
-            this.checkBox3.TabIndex = 6;
-            this.checkBox3.Text = "Wed";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkWed.AutoSize = true;
+            this.chkWed.Location = new System.Drawing.Point(182, 110);
+            this.chkWed.Name = "chkWed";
+            this.chkWed.Size = new System.Drawing.Size(68, 24);
+            this.chkWed.TabIndex = 6;
+            this.chkWed.Text = "Wed";
+            this.chkWed.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chkThurs
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(259, 110);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(75, 24);
-            this.checkBox4.TabIndex = 7;
-            this.checkBox4.Text = "Thurs";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chkThurs.AutoSize = true;
+            this.chkThurs.Location = new System.Drawing.Point(259, 110);
+            this.chkThurs.Name = "chkThurs";
+            this.chkThurs.Size = new System.Drawing.Size(75, 24);
+            this.chkThurs.TabIndex = 7;
+            this.chkThurs.Text = "Thurs";
+            this.chkThurs.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chkFri
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(340, 110);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(53, 24);
-            this.checkBox5.TabIndex = 8;
-            this.checkBox5.Text = "Fri";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chkFri.AutoSize = true;
+            this.chkFri.Location = new System.Drawing.Point(340, 110);
+            this.chkFri.Name = "chkFri";
+            this.chkFri.Size = new System.Drawing.Size(53, 24);
+            this.chkFri.TabIndex = 8;
+            this.chkFri.Text = "Fri";
+            this.chkFri.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // chkSat
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(399, 110);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(60, 24);
-            this.checkBox6.TabIndex = 9;
-            this.checkBox6.Text = "Sat";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chkSat.AutoSize = true;
+            this.chkSat.Location = new System.Drawing.Point(399, 110);
+            this.chkSat.Name = "chkSat";
+            this.chkSat.Size = new System.Drawing.Size(60, 24);
+            this.chkSat.TabIndex = 9;
+            this.chkSat.Text = "Sat";
+            this.chkSat.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // chkSun
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(475, 110);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(64, 24);
-            this.checkBox7.TabIndex = 10;
-            this.checkBox7.Text = "Sun";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chkSun.AutoSize = true;
+            this.chkSun.Location = new System.Drawing.Point(475, 110);
+            this.chkSun.Name = "chkSun";
+            this.chkSun.Size = new System.Drawing.Size(64, 24);
+            this.chkSun.TabIndex = 10;
+            this.chkSun.Text = "Sun";
+            this.chkSun.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbAlertFrequency);
             this.groupBox2.Location = new System.Drawing.Point(12, 233);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(575, 199);
+            this.groupBox2.Size = new System.Drawing.Size(575, 132);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "How Often Should Hoot Alert?";
@@ -195,7 +198,7 @@
             "Every hour",
             "Every half hour",
             "Every quarter hour"});
-            this.cbAlertFrequency.Location = new System.Drawing.Point(37, 43);
+            this.cbAlertFrequency.Location = new System.Drawing.Point(37, 48);
             this.cbAlertFrequency.Name = "cbAlertFrequency";
             this.cbAlertFrequency.Size = new System.Drawing.Size(336, 28);
             this.cbAlertFrequency.TabIndex = 0;
@@ -204,9 +207,9 @@
             // 
             this.groupBox3.Controls.Add(this.cbVoiceType);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(13, 489);
+            this.groupBox3.Location = new System.Drawing.Point(13, 383);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(574, 204);
+            this.groupBox3.Size = new System.Drawing.Size(574, 120);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Voice Settings";
@@ -229,11 +232,31 @@
             this.cbVoiceType.Size = new System.Drawing.Size(257, 28);
             this.cbVoiceType.TabIndex = 1;
             // 
+            // chkStartup
+            // 
+            this.chkStartup.AutoSize = true;
+            this.chkStartup.Location = new System.Drawing.Point(37, 155);
+            this.chkStartup.Name = "chkStartup";
+            this.chkStartup.Size = new System.Drawing.Size(344, 24);
+            this.chkStartup.TabIndex = 11;
+            this.chkStartup.Text = "Automatically start up when computer starts";
+            this.chkStartup.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(459, 539);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(128, 61);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 762);
+            this.ClientSize = new System.Drawing.Size(603, 612);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -260,17 +283,19 @@
         private System.Windows.Forms.ComboBox cbEndTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkSun;
+        private System.Windows.Forms.CheckBox chkSat;
+        private System.Windows.Forms.CheckBox chkFri;
+        private System.Windows.Forms.CheckBox chkThurs;
+        private System.Windows.Forms.CheckBox chkWed;
+        private System.Windows.Forms.CheckBox chkTues;
+        private System.Windows.Forms.CheckBox chkMon;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbAlertFrequency;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbVoiceType;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkStartup;
+        private System.Windows.Forms.Button btnSave;
     }
 }
