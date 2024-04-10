@@ -34,6 +34,7 @@ namespace Hoot
 
         private void Start()
         {
+            lastAlert = DateTime.Now.AddMinutes(-6);
             synth = new SpeechSynthesizer();
             synth.SetOutputToDefaultAudioDevice();
 
@@ -46,7 +47,7 @@ namespace Hoot
         private void Tick(object sender, EventArgs e)
         {
             var now = DateTime.Now;
-            if ((now.Minute == 0 || now.Minute == 30) && (lastAlert - now).TotalMinutes > 5)
+            if ((now.Minute == 0 || now.Minute == 30) && (now - lastAlert).TotalMinutes > 5)
             {
                 lastAlert = now;
                 var p = new Popup();
