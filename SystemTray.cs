@@ -22,7 +22,7 @@ namespace Hoot
             {
                 Icon = Resources.AppIcon,
                 ContextMenu = new ContextMenu(new MenuItem[] {
-                    new MenuItem("Options", Options),
+                    new MenuItem("Settings", Settings),
                     new MenuItem("Exit", Exit)
                 }),
                 Text = "Hoot",
@@ -57,10 +57,9 @@ namespace Hoot
             }
         }
 
-        private void Options(object sender, EventArgs e)
+        private void Settings(object sender, EventArgs e)
         {
-            tray.Visible = false;
-            Application.Exit();
+            new FormSettings().Show();
         }
 
         private void Exit(object sender, EventArgs e)
