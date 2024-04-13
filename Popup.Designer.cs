@@ -64,7 +64,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Popup";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Popup_Load);
             this.ResumeLayout(false);
 

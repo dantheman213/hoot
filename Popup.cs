@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Hoot
@@ -15,6 +10,31 @@ namespace Hoot
         public Popup()
         {
             InitializeComponent();
+        }
+
+        // Define constant values for window styles
+        private const int GWL_EXSTYLE = -20;
+        private const int WS_EX_TOPMOST = 0x00000008;
+        private const int WS_EX_NOACTIVATE = 0x08000000;
+
+        // Import the necessary functions from the user32.dll library
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+
+        // This allows the form to be created with topmost set to true but also not to take the focus
+        // so it doesn't interrupt what you were doing when the alert popped up
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // Add the WS_EX_TOPMOST and WS_EX_NOACTIVATE styles to the window
+                CreateParams createParams = base.CreateParams;
+                createParams.ExStyle |= (WS_EX_TOPMOST | WS_EX_NOACTIVATE);
+                return createParams;
+            }
         }
 
         private void Popup_Load(object sender, EventArgs e)

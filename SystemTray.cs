@@ -32,6 +32,12 @@ namespace Hoot
             Start();
         }
 
+        private void DebugModeAlert()
+        {
+            Task.Delay(5000).Wait();
+            alert();
+        }
+
         private void Start()
         {
             lastAlert = DateTime.Now.AddMinutes(-6);
@@ -49,12 +55,21 @@ namespace Hoot
             var now = DateTime.Now;
             if ((now.Minute == 0 || now.Minute == 30) && (now - lastAlert).TotalMinutes > 5)
             {
-                lastAlert = now;
+                alert();
+            }
+        }
+
+        private void alert()
+        {
+            lastAlert = DateTime.Now;
+
+            if(!DetectFullscreen.IsExclusiveFullscreen())
+            {
                 var p = new Popup();
                 p.Show();
-
-                synth.Speak(String.Format("The time is {0}", DateTime.Now.ToString("h:mm tt")));
             }
+
+            synth.Speak(String.Format("The time is {0}", DateTime.Now.ToString("h:mm tt")));
         }
 
         private void Settings(object sender, EventArgs e)
