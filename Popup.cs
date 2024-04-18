@@ -7,17 +7,10 @@ namespace Hoot
 {
     public partial class Popup : Form
     {
-        public Popup()
-        {
-            InitializeComponent();
-        }
-
-        // Define constant values for window styles
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TOPMOST = 0x00000008;
         private const int WS_EX_NOACTIVATE = 0x08000000;
 
-        // Import the necessary functions from the user32.dll library
         [DllImport("user32.dll")]
         private static extern IntPtr GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -35,6 +28,11 @@ namespace Hoot
                 createParams.ExStyle |= (WS_EX_TOPMOST | WS_EX_NOACTIVATE);
                 return createParams;
             }
+        }
+
+        public Popup()
+        {
+            InitializeComponent();
         }
 
         private void Popup_Load(object sender, EventArgs e)
