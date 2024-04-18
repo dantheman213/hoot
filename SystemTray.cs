@@ -1,6 +1,7 @@
 ﻿using Hoot.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Text;
@@ -16,6 +17,9 @@ namespace Hoot
         private SpeechSynthesizer synth;
         private DateTime lastAlert;
 
+        private TimeSpan startWorkingHours;
+        private TimeSpan endWorkingHours;
+
         public SystemTray()
         {
             tray = new NotifyIcon()
@@ -29,7 +33,24 @@ namespace Hoot
                 Visible = true
             };
 
+            // TODO: make this configurable
+            startWorkingHours = new TimeSpan(9, 0, 0);
+            endWorkingHours = new TimeSpan(17, 0, 0);
+
+            // TODO: make this configurable
+            // Check if the application is already set to run on startup
+            if (!Debugger.IsAttached && !Startup.IsAppSetToRunOnStartup())
+            {
+                Startup.SetAppToRunOnStartup();
+                Console.WriteLine("Application set to run on startup");
+            }
+
             Start();
+
+            if (Debugger.IsAttached)
+            {
+                DebugModeAlert();
+            }
         }
 
         private void DebugModeAlert()
@@ -45,7 +66,7 @@ namespace Hoot
             synth.SetOutputToDefaultAudioDevice();
 
             timer = new Timer();
-            timer.Interval = (5000); // run every 5 seconds
+            timer.Interval = (5000);
             timer.Tick += new EventHandler(Tick);
             timer.Start();
         }
@@ -53,9 +74,19 @@ namespace Hoot
         private void Tick(object sender, EventArgs e)
         {
             var now = DateTime.Now;
-            if ((now.Minute == 0 || now.Minute == 30) && (now - lastAlert).TotalMinutes > 5)
+            var day = now.DayOfWeek;
+
+            // only run between Mon-Fri 9am-5pm
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Friday)
             {
-                alert();
+                // TODO: make this configurable
+                if (now.TimeOfDay >= startWorkingHours && now.TimeOfDay <= endWorkingHours)
+                {
+                    if ((now.Minute == 0 || now.Minute == 30) && (now - lastAlert).TotalMinutes > 5)
+                    {
+                        alert();
+                    }
+                }
             }
         }
 
